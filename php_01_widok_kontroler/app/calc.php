@@ -45,7 +45,7 @@ if (empty( $messages )) {
 	}	
 
 	if (! is_numeric( $z )) {
-		$messages [] = 'Druga wartość nie jest liczbą całkowitą';
+		$messages [] = 'Trzecia wartość nie jest liczbą całkowitą';
 	}	
 
 }
