@@ -29,12 +29,12 @@ function validateLogin(&$form,&$messages){
 	// sprawdzenie, czy dane logowania są poprawne
 	// - takie informacje najczęściej przechowuje się w bazie danych
 	//   jednak na potrzeby przykładu sprawdzamy bezpośrednio
-	if ($form['login'] == "admin" && $form['pass'] == "admin") {
+	if ($form['login'] == "manager" && $form['pass'] == "manager") {
 		session_start();
-		$_SESSION['role'] = 'admin';
+		$_SESSION['role'] = 'manager';
 		return true;
 	}
-	if ($form['login'] == "user" && $form['pass'] == "user") {
+	if ($form['login'] == "klient" && $form['pass'] == "klient") {
 		session_start();
 		$_SESSION['role'] = 'user';
 		return true;

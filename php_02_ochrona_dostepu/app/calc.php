@@ -7,92 +7,86 @@ require_once dirname(__FILE__).'/../config.php';
 // Wysłaniem odpowiedzi zajmie się odpowiedni widok.
 // Parametry do widoku przekazujemy przez zmienne.
 
-//ochrona kontrolera - poniższy skrypt przerwie przetwarzanie w tym punkcie gdy użytkownik jest niezalogowany
+// Ochrona kontrolera - poniższy skrypt przerwie przetwarzanie w tym punkcie, gdy użytkownik jest niezalogowany
 include _ROOT_PATH.'/app/security/check.php';
 
-//pobranie parametrów
-function getParams(&$x,&$y,&$z){
-	$x = isset($_REQUEST['x']) ? $_REQUEST['x'] : null;
-	$y = isset($_REQUEST['y']) ? $_REQUEST['y'] : null;
-	$z = isset($_REQUEST['z']) ? $_REQUEST['z'] : null;
+// Pobranie parametrów
+function getParams(&$kwota, &$oprocentowanie, &$okres){
+    $kwota = isset($_REQUEST['kwota']) ? $_REQUEST['kwota'] : null;
+    $oprocentowanie = isset($_REQUEST['oprocentowanie']) ? $_REQUEST['oprocentowanie'] : null;
+    $okres = isset($_REQUEST['okres']) ? $_REQUEST['okres'] : null;
 }
 
-// 2. walidacja parametrów z przygotowaniem zmiennych dla widoku
+// Walidacja parametrów z przygotowaniem zmiennych dla widoku
+function validate(&$kwota, &$oprocentowanie, &$okres, &$messages){
+    // Sprawdzenie, czy parametry zostały przekazane
+    if (! (isset($kwota) && isset($oprocentowanie) && isset($okres))) {
+        // Sytuacja wystąpi, kiedy np. kontroler zostanie wywołany bezpośrednio - nie z formularza
+        // Teraz zakładamy, że nie jest to błąd. Po prostu nie wykonamy obliczeń
+        return false;
+    }
+    
+    // Sprawdzenie, czy potrzebne wartości zostały przekazane
+    if ($kwota == "") {
+        $messages[] = 'Nie podano kwoty kredytu';
+    }
+    if ($oprocentowanie == "") {
+        $messages[] = 'Nie podano oprocentowania';
+    }
+    if ($okres == "") {
+        $messages[] = 'Nie podano okresu kredytowania';
+    }
 
-function validate(&$x,&$y,&$z,&$messages){
-	// sprawdzenie, czy parametry zostały przekazane
-	if ( ! (isset($x) && isset($y) && isset($z))) {
-		// sytuacja wystąpi kiedy np. kontroler zostanie wywołany bezpośrednio - nie z formularza
-		// teraz zakładamy, ze nie jest to błąd. Po prostu nie wykonamy obliczeń
-		return false;
-	}
-	
+    if (count($messages) != 0) return false;
 
+    // Nie ma sensu walidować dalej, gdy brak parametrów
+    if (empty($messages)) {
+        
+        // Sprawdzenie, czy kwota, oprocentowanie i okres są liczbami
+        if (!is_numeric($kwota)) {
+            $messages[] = 'Kwota nie jest liczbą';
+        }
+        
+        if (!is_numeric($oprocentowanie)) {
+            $messages[] = 'Oprocentowanie nie jest liczbą';
+        }    
 
-// sprawdzenie, czy potrzebne wartości zostały przekazane
-if ( $x == "") {
-	$messages [] = 'Nie podano liczby 1';
-}
-if ( $y == "") {
-	$messages [] = 'Nie podano liczby 2';
-}
-
-if ( $z == "") {
-	$messages [] = 'Nie podano liczby 3';
-}
-
-if (count ( $messages ) != 0) return false;
-
-//nie ma sensu walidować dalej gdy brak parametrów
-if (empty( $messages )) {
-	
-	// sprawdzenie, czy $x i $y są liczbami całkowitymi
-	if (! is_numeric( $x )) {
-		$messages [] = 'Pierwsza wartość nie jest liczbą całkowitą';
-	}
-	
-	if (! is_numeric( $y )) {
-		$messages [] = 'Druga wartość nie jest liczbą całkowitą';
-	}	
-
-	if (! is_numeric( $z )) {
-		$messages [] = 'Trzecia wartość nie jest liczbą całkowitą';
-	}
-	if (count ( $messages ) != 0) return false;
-	else return true;
-}	
+        if (!is_numeric($okres)) {
+            $messages[] = 'Okres kredytowania nie jest liczbą';
+        }
+        if (count($messages) != 0) return false;
+        else return true;
+    }    
 }
 
-function process(&$x,&$y,&$z,&$messages,&$result){
-	global $role;
-	
-	//konwersja parametrów na int
-	$x = intval($x);
-	$y = intval($y);
-	$z = intval($z);
+function process(&$kwota, &$oprocentowanie, &$okres, &$messages, &$wynik){
+    global $role;
+    
+    // Konwersja parametrów na int/float
+    $kwota = floatval($kwota);
+    $oprocentowanie = floatval($oprocentowanie);
+    $okres = intval($okres);
 
-	
-	//wykonanie operacji
-
-			if ($role == 'admin'){
-				$result = floatval($x + ($x * ($y * $z/100)))/ (12 * $z);
-			} else {
-				$messages [] = 'Tylko administrator może obliczyć ratę kredytu!';
-			}
+    $maksymalna_kwota = 10000000;
+    
+    // Wykonanie operacji
+    if ($kwota > $maksymalna_kwota && $role != 'manager') {
+        $messages[] = 'Tylko menedżer banku może obliczyć ratę kredytu dla tak wysokiej kwoty!';
+        return;
+    } else {
+        $wynik = floatval($kwota + ($kwota * ($oprocentowanie * $okres / 100))) / (12 * $okres);
+    }
 }
 
-//definicja zmiennych kontrolera
-
-$result = null;
+// Definicja zmiennych kontrolera
+$wynik = null;
 $messages = array();
 
-//pobierz parametry i wykonaj zadanie jeśli wszystko w porządku
-getParams($x,$y,$z);
-if ( validate($x,$y,$z,$messages) ) { // gdy brak błędów
-	process($x,$y,$z,$messages,$result);
+// Pobierz parametry i wykonaj zadanie, jeśli wszystko w porządku
+getParams($kwota, $oprocentowanie, $okres);
+if (validate($kwota, $oprocentowanie, $okres, $messages)) { // Gdy brak błędów
+    process($kwota, $oprocentowanie, $okres, $messages, $wynik);
 }
 
 // Wywołanie widoku z przekazaniem zmiennych
-
-//   będą dostępne w dołączonym skrypcie
 include 'calc_view.php';
