@@ -1,0 +1,78 @@
+{extends file="../templates/main.html"}
+
+{block name=footer}Mój własny kalkulator kredytowy{/block}
+
+{block name=content}
+
+<section id="intro" class="wrapper style1 fullscreen fade-up">
+	<div class="inner">
+		<h1>Kalkulator kredytowy</h1>
+
+		<ul class="actions">
+			<li><a href="#three" class="button scrolly">Przejdźmy dalej</a></li>
+		</ul>
+	</div>
+</section>
+
+<section id="three" class="wrapper style1 fade-up">
+	<div class="inner">
+		<h2>Obliczanie raty</h2>
+		<section>
+			<form action="{$app_url}/app/calc.php#three" method="post">
+				<div class="fields">
+					<div class="field half">
+						<label for="id_kwota">Kwota kredytu: </label>
+						<input id="id_kwota" type="text" name="kwota" value="{$form['kwota']}"/><br />
+					</div>
+					<div class="field half">
+						<label for="id_oprocentowanie">Oprocentowanie roczne: </label>
+						<input id="id_oprocentowanie" type="text" name="oprocentowanie" value="{$form['oprocentowanie']}"/><br />
+					</div>
+					<div class="field half">
+						<label for="id_okres">Ilość lat: </label>
+						<input id="id_okres" type="text" name="okres" value="{$form['okres']}"/><br />
+					</div>
+					<div class="field half">
+						<label for="id_wynik">Miesięczna rata kredytu: </label>
+						<input id="id_wynik" type="text" value="{$result|default:''}" readonly style="background-color: #f0f0f0; border: 1px solid #ccc; color: #000;" /><br />
+					</div>
+						<ul class="actions">
+							<button type="submit" class="button">Oblicz</button>
+						</ul>
+			</form>
+		</section>
+
+
+		{* wyświeltenie listy błędów, jeśli istnieją *}
+{if isset($messages)}
+	{if count($messages) > 0}
+		<h4>Wystąpiły błędy: </h4>
+		<ol class="err">
+		{foreach  $messages as $msg}
+		{strip}
+			<li>{$msg}</li>
+		{/strip}
+		{/foreach}
+		</ol>
+	{/if}
+{/if}
+
+{* wyświeltenie listy informacji, jeśli istnieją *}
+{if isset($infos)}
+	{if count($infos) > 0}
+		<h4>Informacje: </h4>
+		<ol class="inf">
+		{foreach  $infos as $msg}
+		{strip}
+			<li>{$msg}</li>
+		{/strip}
+		{/foreach}
+		</ol>
+	{/if}
+{/if}
+
+
+</div>
+</section>
+
+{/block}
