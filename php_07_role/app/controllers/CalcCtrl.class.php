@@ -70,7 +70,7 @@ class CalcCtrl {
                 getMessages()->addError('Okres kredytowania nie jest liczbą');
 			}
 		}
-        global $user;
+        $user = unserialize($_SESSION['user']);
         if ($user->role == "user" && $this->form->kwota > 999999) {
             getMessages()->addError('Użytkownik z rolą "user" nie może wpisać kwoty większej niż 999999');
         }
@@ -112,9 +112,7 @@ class CalcCtrl {
 	 */
 	public function generateView(){
 
-        global $user;
-
-        getSmarty()->assign('user',$user);
+        getSmarty()->assign('user',unserialize($_SESSION['user']));
         getSmarty()->assign('page_title','Kalkulator');
         getSmarty()->assign('page_description','Obiektowość. Funkcjonalność aplikacji zamknięta w metodach różnych obiektów. Pełen model MVC.');
         getSmarty()->assign('page_header','Obiekty w PHP');
