@@ -10,17 +10,14 @@
     </form>
 </div>
 
-
-
 {/block}
 
 {block name=bottom}
 
 <div class="bottom-margin">
-    <a class="button special large" style="font-size: 0.9rem;"  href="{$conf->action_root}userNew">Dodaj nowego użytkownika</a>
-    <a class="button small primary" style="font-size: 0.9rem;" href="{$conf->action_root}roleList">Aktywność ról</a>
+    <a class="button small primary" style="font-size: 0.9rem;" href="{$conf->action_root}userNew">Dodaj nowego użytkownika</a>
+    <a class="button special large" style="font-size: 0.9rem;" href="{$conf->action_root}roleList">Aktywność ról</a>
 </div>
-
 
 <table id="tab_people" class="pure-table pure-table-bordered">
 <thead>
@@ -40,10 +37,14 @@
     <td>{$p["username"]}</td>
     <td>{$p["email"]}</td>
     <td>{$p["roleName"]}</td>
-    <td>{$p["createdByUsername"]|default:"Nieznany"}</td> <!-- Wyświetlanie nazwy użytkownika, który utworzył -->
+    <td>{$p["createdByUsername"]}</td>
     <td>
-        <a class="pure-button pure-button-secondary" href="{$conf->action_root}userEdit/{$p['idUser']}">Edytuj</a>
-        <a class="pure-button pure-button-warning" href="{$conf->action_root}userDelete/{$p['idUser']}">Usuń</a>
+        <a class="button special large" style="font-size: 0.82rem;" href="{$conf->action_root}userEdit/{$p['idUser']}">Edytuj</a>
+        {if $p["isBlocked"] == 1}
+            <a class="button small primary" href="{$conf->action_root}userUnblock/{$p['idUser']}">Odblokuj</a>
+        {else}
+            <a class="button small primary" href="{$conf->action_root}userBlock/{$p['idUser']}">Zablokuj</a>
+        {/if}
     </td>
 </tr>
 {/foreach}

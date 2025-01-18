@@ -5,6 +5,8 @@ namespace app\controllers;
 use core\App;
 use core\Utils;
 use core\ParamUtils;
+use core\RoleUtils;
+use core\SessionUtils;
 use app\forms\UserSearchForm;
 
 class UserListCtrl {
@@ -27,8 +29,68 @@ class UserListCtrl {
 
         return !App::getMessages()->isError();
     }
+    public function action_userBlock() {
+        $userId = ParamUtils::getFromCleanURL(1); // Pobieramy ID użytkownika z URL
 
-    public function action_UserList() {
+        if (!isset($userId)) {
+            Utils::addErrorMessage('Brak identyfikatora użytkownika.');
+            return;
+        }
+
+        try {
+            // Aktualizacja statusu użytkownika
+            App::getDB()->update("users", [
+                "isBlocked" => 1 // Ustawiamy flagę blokady
+            ], [
+                "idUser" => $userId
+            ]);
+
+            Utils::addInfoMessage("Użytkownik został zablokowany.");
+        } catch (\PDOException $e) {
+            Utils::addErrorMessage('Wystąpił błąd podczas blokowania użytkownika.');
+            if (App::getConf()->debug) {
+                Utils::addErrorMessage($e->getMessage());
+            }
+        }
+
+        // Powrót do listy użytkowników
+        App::getRouter()->forwardTo('userList');
+    }
+
+    public function action_userUnblock() {
+        $userId = ParamUtils::getFromCleanURL(1, true, 'Brak identyfikatora użytkownika.');
+        
+        if ($userId === null) {
+            Utils::addErrorMessage('Nieprawidłowy identyfikator użytkownika.');
+            return;
+        }
+    
+        try {
+            App::getDB()->update("users", [
+                "isBlocked" => 0 // Odblokowanie użytkownika
+            ], [
+                "idUser" => $userId
+            ]);
+    
+            Utils::addInfoMessage("Użytkownik został odblokowany.");
+        } catch (\PDOException $e) {
+            Utils::addErrorMessage('Wystąpił błąd podczas odblokowywania użytkownika.');
+            if (App::getConf()->debug) {
+                Utils::addErrorMessage($e->getMessage());
+            }
+        }
+    
+        App::getRouter()->forwardTo('userList');
+    }
+
+
+    public function action_userList() {
+        if (! RoleUtils::inRole('admin')) {
+            SessionUtils::store('error_message', 'Nie masz uprawnień do tej operacji.');
+            App::getRouter()->redirectTo('roleError');
+            return;
+        }
+
         // 1. Walidacja danych formularza (z pobraniem)
         // - W tej aplikacji walidacja nie jest potrzebna, ponieważ nie wystąpią błedy podczas podawania nazwiska.
         //   Jednak pozostawiono ją, ponieważ gdyby uzytkownik wprowadzał np. datę, lub wartość numeryczną, to trzeba
@@ -64,7 +126,8 @@ class UserListCtrl {
                 "users.username",
                 "users.email",
                 "roles.roleName", // pobranie nazwy roli
-                "users.createdBy" // pobranie ID użytkownika, który stworzył wpis
+                "users.createdBy", // pobranie ID użytkownika, który stworzył wpis
+                "users.isBlocked"
             ], $search_params);
         
             // Pobranie wszystkich użytkowników (mapowanie ID na nazwy)
@@ -79,11 +142,11 @@ class UserListCtrl {
                 $userMap[$user["idUser"]] = $user["username"];
             }
         
-            // Mapowanie `createdBy` na nazwę użytkownika w `this->records`
+            // Mapowanie createdBy na nazwę użytkownika w this->records
             foreach ($this->records as &$record) {
                 $record["createdByUsername"] = isset($record["createdBy"]) && isset($userMap[$record["createdBy"]])
                     ? $userMap[$record["createdBy"]]
-                    : "Nieznany"; // Domyślnie "Nieznany", jeśli brak danych
+                    : "system"; // Domyślnie "Nieznany", jeśli brak danych
             }
         } catch (\PDOException $e) {
             Utils::addErrorMessage('Wystąpił błąd podczas pobierania danych.');
@@ -95,6 +158,7 @@ class UserListCtrl {
         App::getSmarty()->assign('searchForm', $this->form); // dane formularza (wyszukiwania w tym wypadku)
         App::getSmarty()->assign('people', $this->records);  // lista rekordów z bazy danych
         App::getSmarty()->display('UserList.tpl');
+    
     }
 
 }

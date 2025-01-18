@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2025-01-07 23:53:14
+/* Smarty version 3.1.30, created on 2025-01-17 00:14:43
   from "C:\xampp\htdocs\php_09_bd\app\views\LoginView.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_677db05a7df3d5_57620237',
+  'unifunc' => 'content_678992e3326259_88709166',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'cefe869051058c141f067b993dd2a30feef1f8f2' => 
     array (
       0 => 'C:\\xampp\\htdocs\\php_09_bd\\app\\views\\LoginView.tpl',
-      1 => 1736290393,
+      1 => 1737068947,
       2 => 'file',
     ),
   ),
@@ -21,21 +21,21 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:main.tpl' => 1,
   ),
 ),false)) {
-function content_677db05a7df3d5_57620237 (Smarty_Internal_Template $_smarty_tpl) {
+function content_678992e3326259_88709166 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, true);
 ?>
 
 
 <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1495723674677db05a7df028_05095524', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1133885114678992e3325ea0_67035961', 'top');
 ?>
 
 <?php $_smarty_tpl->inheritance->endChild();
 $_smarty_tpl->_subTemplateRender("file:main.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 2, false);
 }
 /* {block 'top'} */
-class Block_1495723674677db05a7df028_05095524 extends Smarty_Internal_Block
+class Block_1133885114678992e3325ea0_67035961 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -79,6 +79,7 @@ login" method="post" class="pure-form pure-form-aligned"
             </section>
         </div>
     </div>
+    
 
 </div>
 <?php

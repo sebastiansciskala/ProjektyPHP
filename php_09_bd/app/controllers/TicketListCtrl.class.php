@@ -6,6 +6,8 @@ use core\App;
 use core\Utils;
 use core\ParamUtils;
 use app\forms\TicketSearchForm;
+use core\RoleUtils;
+use core\SessionUtils;
 
 class TicketListCtrl {
 
@@ -24,6 +26,11 @@ class TicketListCtrl {
     }
 
     public function action_ticketList() {
+        if (RoleUtils::inRole('admin')) {
+            SessionUtils::store('error_message', 'Tylko użytkownicy powinni mieć dostęp do tej strony');
+            App::getRouter()->redirectTo('roleError'); // Przekierowanie na stronę błędu
+            return;
+        }
         // 1. Walidacja danych formularza
         $this->validate();
     
@@ -73,7 +80,7 @@ class TicketListCtrl {
             // Dodanie nazw użytkowników i statusów do zgłoszeń
             foreach ($tickets as &$ticket) {
                 $ticket["createdBy"] = isset($userMap[$ticket["createdBy"]]) ? $userMap[$ticket["createdBy"]] : "Nieznany";
-                $ticket["modifiedBy"] = isset($userMap[$ticket["modifiedBy"]]) ? $userMap[$ticket["modifiedBy"]] : "Nieznany";
+                $ticket["modifiedBy"] = isset($userMap[$ticket["modifiedBy"]]) ? $userMap[$ticket["modifiedBy"]] : "Brak";
                 $ticket["status"] = isset($statusMap[$ticket["idStatus"]]) ? $statusMap[$ticket["idStatus"]] : "Nieznany";
             }
     

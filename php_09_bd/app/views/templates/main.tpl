@@ -12,20 +12,21 @@
 <header id="header" class="alt">
     <nav>
         <ul style="display: flex; justify-content: flex-end; list-style: none; padding: 0; margin: 0;">
+            {if count($conf->roles) > 0}
             <li style="margin-left: 20px;">
                 <a href="{$conf->action_root}ticketList" class="icon solid fa-clipboard-list" style="color: #333; font-weight: bold; text-decoration: none;">Zgłoszenia</a>
             </li>
+            {/if}
+            {if isset($conf->roles.admin) && $conf->roles.admin}
             <li style="margin-left: 20px;">
                 <a href="{$conf->action_root}userList" class="icon solid fa-users" style="color: #333; font-weight: bold; text-decoration: none;">Lista użytkowników</a>
             </li>
+            {/if}
             {if count($conf->roles) > 0}
             <li style="margin-left: 20px;">
                 <a href="{$conf->action_root}logout" class="icon solid fa-sign-out-alt" style="color: #333; font-weight: bold; text-decoration: none;">Wyloguj</a>
             </li>
-            {else}
-            <li style="margin-left: 20px;">
-                <a href="{$conf->action_root}loginShow" class="icon solid fa-sign-in-alt" style="color: #333; font-weight: bold; text-decoration: none;">Zaloguj</a>
-            </li>
+
             {/if}
         </ul>
     </nav>

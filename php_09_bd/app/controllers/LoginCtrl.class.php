@@ -56,9 +56,18 @@ class LoginCtrl {
                 Utils::addErrorMessage('Twoja rola jest nieaktywna. Skontaktuj się z administratorem.');
                 return false;
             }
+
+            $isBlocked = App::getDB()->get("users", "isBlocked", [
+                "idUser" => $user["idUser"] // Sprawdzamy blokadę dla konkretnego użytkownika
+            ]);
+            
+            if ($isBlocked) {
+                Utils::addErrorMessage('Twoje konto jest zablokowane. Skontaktuj się z administratorem.');
+                return false;
+            }
+            
     
             // Zapisanie nazwy użytkownika w sesji
-            SessionUtils::store('username', $user['username']);
             SessionUtils::store('idUser', $user['idUser']);
     
             // Przypisywanie ról na podstawie idRole
@@ -88,7 +97,23 @@ class LoginCtrl {
             return false;
         }
     }
+    public function action_logout() {
+        // 1. zakończenie sesji
+        session_destroy();
+        // 2. idź na stronę główną - system automatycznie przekieruje do strony logowania
+        App::getRouter()->redirectTo('personList');
+    }
+    public function action_roleError() {
+        // Pobierz komunikat o błędzie z sesji
+        $errorMessage = SessionUtils::load('error_message', true);
     
+        // Dodaj komunikat do systemu wiadomości, jeśli istnieje
+        if ($errorMessage) {
+            Utils::addErrorMessage($errorMessage);
+            $this->generateView();
+        }
+    
+    }
 
     public function action_loginShow() {
         $this->generateView();
@@ -96,6 +121,10 @@ class LoginCtrl {
 
     public function action_login() {
         if ($this->validate()) {
+            if (RoleUtils::inRole('admin')) {
+                App::getRouter()->redirectTo('userList');
+                return;
+            }
             Utils::addInfoMessage('Poprawnie zalogowano do systemu');
             App::getRouter()->redirectTo("ticketList"); // Po zalogowaniu przekierowanie na listę zgłoszeń
         } else {
@@ -103,14 +132,10 @@ class LoginCtrl {
         }
     }
 
-    public function action_logout() {
-        // Wyczyszczenie sesji
-        SessionUtils::remove('username');
-        SessionUtils::remove('idUser');
-        session_destroy();
-        App::getRouter()->redirectTo('loginShow'); // Powrót do strony logowania
-    }
 
+
+
+   
     public function generateView() {
         App::getSmarty()->assign('form', $this->form); // dane formularza do widoku
         App::getSmarty()->display('LoginView.tpl');

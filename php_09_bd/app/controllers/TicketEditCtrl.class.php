@@ -46,10 +46,20 @@ class TicketEditCtrl {
     }
 
     public function action_ticketNew() {
+        if (RoleUtils::inRole('admin')) {
+            SessionUtils::store('error_message', 'Tylko użytkownicy powinni dodawać zgłoszenia');
+            App::getRouter()->redirectTo('roleError');
+            return;
+        }
         $this->generateView();
     }
 
     public function action_ticketEdit() {
+        if (RoleUtils::inRole('admin')) {
+            SessionUtils::store('error_message', 'Tylko użytkownicy powinni korzystać z tej opcji.');
+            App::getRouter()->redirectTo('roleError');
+            return;
+        }
         if ($this->validateEdit()) {
             try {
                 $record = App::getDB()->get("tickets", "*", [
@@ -76,11 +86,6 @@ class TicketEditCtrl {
             try {
                 $currentUserId = SessionUtils::load('idUser'); // ID użytkownika z sesji
     
-                if (!$currentUserId) {
-                    Utils::addErrorMessage('Musisz być zalogowany, aby zapisywać zgłoszenia.');
-                    App::getRouter()->redirectTo('loginShow');
-                    return;
-                }
     
                 if (empty($this->form->id)) { // Nowe zgłoszenie
                     App::getDB()->insert("tickets", [
@@ -103,6 +108,11 @@ class TicketEditCtrl {
     
                     Utils::addInfoMessage('Pomyślnie dodano nowe zgłoszenie.');
                 } else { // Edycja zgłoszenia
+                    if (RoleUtils::inRole('userReporting')) {
+                        SessionUtils::store('error_message', 'Nie masz uprawnień do tej operacji.');
+                        App::getRouter()->redirectTo('roleError');
+                        return;
+                    }
                     $existingStatus = App::getDB()->get("tickets", "idStatus", [
                         "idTicket" => $this->form->id
                     ]);
@@ -147,29 +157,7 @@ class TicketEditCtrl {
 
 
 
-    public function action_ticketDelete() {
-        $ticketId = ParamUtils::getFromCleanURL(1, true, 'Błędne wywołanie aplikacji');
-    
-        if (!$ticketId) {
-            Utils::addErrorMessage('Nie znaleziono zgłoszenia do usunięcia.');
-            App::getRouter()->redirectTo('ticketList');
-            return;
-        }
-    
-        try {
-            App::getDB()->delete("tickets", [
-                "idTicket" => $ticketId
-            ]);
-            Utils::addInfoMessage('Zgłoszenie zostało pomyślnie usunięte.');
-        } catch (\PDOException $e) {
-            Utils::addErrorMessage('Wystąpił błąd podczas usuwania zgłoszenia.');
-            if (App::getConf()->debug) {
-                Utils::addErrorMessage($e->getMessage());
-            }
-        }
-    
-        App::getRouter()->redirectTo('ticketList');
-    }
+
     
     
 

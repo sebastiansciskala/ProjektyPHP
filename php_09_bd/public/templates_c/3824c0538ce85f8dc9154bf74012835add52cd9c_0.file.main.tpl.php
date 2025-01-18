@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.30, created on 2025-01-07 23:57:32
+/* Smarty version 3.1.30, created on 2025-01-18 08:47:09
   from "C:\xampp\htdocs\php_09_bd\app\views\templates\main.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.30',
-  'unifunc' => 'content_677db15c7a39b7_24000005',
+  'unifunc' => 'content_678b5c7d4e6425_90510899',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3824c0538ce85f8dc9154bf74012835add52cd9c' => 
     array (
       0 => 'C:\\xampp\\htdocs\\php_09_bd\\app\\views\\templates\\main.tpl',
-      1 => 1736290646,
+      1 => 1737186428,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_677db15c7a39b7_24000005 (Smarty_Internal_Template $_smarty_tpl) {
+function content_678b5c7d4e6425_90510899 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_loadInheritance();
 $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 ?>
@@ -39,24 +39,24 @@ $_smarty_tpl->inheritance->init($_smarty_tpl, false);
 <header id="header" class="alt">
     <nav>
         <ul style="display: flex; justify-content: flex-end; list-style: none; padding: 0; margin: 0;">
+            <?php if (count($_smarty_tpl->tpl_vars['conf']->value->roles) > 0) {?>
             <li style="margin-left: 20px;">
                 <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 ticketList" class="icon solid fa-clipboard-list" style="color: #333; font-weight: bold; text-decoration: none;">Zgłoszenia</a>
             </li>
+            <?php }?>
+            <?php if (isset($_smarty_tpl->tpl_vars['conf']->value->roles['admin']) && $_smarty_tpl->tpl_vars['conf']->value->roles['admin']) {?>
             <li style="margin-left: 20px;">
                 <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 userList" class="icon solid fa-users" style="color: #333; font-weight: bold; text-decoration: none;">Lista użytkowników</a>
             </li>
+            <?php }?>
             <?php if (count($_smarty_tpl->tpl_vars['conf']->value->roles) > 0) {?>
             <li style="margin-left: 20px;">
                 <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
 logout" class="icon solid fa-sign-out-alt" style="color: #333; font-weight: bold; text-decoration: none;">Wyloguj</a>
             </li>
-            <?php } else { ?>
-            <li style="margin-left: 20px;">
-                <a href="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
-loginShow" class="icon solid fa-sign-in-alt" style="color: #333; font-weight: bold; text-decoration: none;">Zaloguj</a>
-            </li>
+
             <?php }?>
         </ul>
     </nav>
@@ -65,15 +65,15 @@ loginShow" class="icon solid fa-sign-in-alt" style="color: #333; font-weight: bo
 <section id="main" class="wrapper">
     <div class="inner">
         <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_2092204706677db15c79c7a1_01343072', 'top');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_782081422678b5c7d4df414_32485973', 'top');
 ?>
 
         <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1005279309677db15c7a28d6_44292946', 'messages');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_226717094678b5c7d4e5365_65132761', 'messages');
 ?>
 
         <?php 
-$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_736636558677db15c7a2f06_78510470', 'bottom');
+$_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_1286483887678b5c7d4e5989_50979643', 'bottom');
 ?>
 
     </div>
@@ -92,14 +92,14 @@ $_smarty_tpl->inheritance->instanceBlock($_smarty_tpl, 'Block_736636558677db15c7
 </html>
 <?php }
 /* {block 'top'} */
-class Block_2092204706677db15c79c7a1_01343072 extends Smarty_Internal_Block
+class Block_782081422678b5c7d4df414_32485973 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }
 }
 /* {/block 'top'} */
 /* {block 'messages'} */
-class Block_1005279309677db15c7a28d6_44292946 extends Smarty_Internal_Block
+class Block_226717094678b5c7d4e5365_65132761 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 ?>
@@ -130,7 +130,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl);
 }
 /* {/block 'messages'} */
 /* {block 'bottom'} */
-class Block_736636558677db15c7a2f06_78510470 extends Smarty_Internal_Block
+class Block_1286483887678b5c7d4e5989_50979643 extends Smarty_Internal_Block
 {
 public function callBlock(Smarty_Internal_Template $_smarty_tpl) {
 }

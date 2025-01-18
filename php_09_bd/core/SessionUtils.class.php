@@ -15,7 +15,7 @@ class SessionUtils {
         }
     }
 
-    public static function load($name, $keep = false) {
+    public static function load($name, $keep = true) {
         if (isset($_SESSION[$name])) {
             $r = $_SESSION[$name];
             if (!$keep)

@@ -96,6 +96,19 @@ class UserEditCtrl {
         if ($this->validateSave()) {
             try {
                 $currentUserId = SessionUtils::load('idUser'); 
+    
+                // Sprawdź, czy username już istnieje w bazie danych
+                $existingUser = App::getDB()->get("users", "idUser", [
+                    "username" => $this->form->username,
+                    "idUser[!]" => $this->form->id // Wyklucz bieżącego użytkownika przy edycji
+                ]);
+    
+                if ($existingUser) {
+                    Utils::addErrorMessage('Podana nazwa użytkownika jest już zajęta.');
+                    $this->generateView();
+                    return;
+                }
+    
                 if ($this->form->id == '') { // Nowy użytkownik
                     $insertData = [
                         "username" => $this->form->username,
@@ -135,6 +148,7 @@ class UserEditCtrl {
             $this->generateView();
         }
     }
+    
     
 
     public function generateView() {
