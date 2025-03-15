@@ -1,0 +1,1 @@
+Stronicowanie znajduje się na widoku TicketList 14.03.2025
