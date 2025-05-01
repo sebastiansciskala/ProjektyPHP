@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.31, created on 2025-05-01 16:23:55
+/* Smarty version 3.1.31, created on 2025-05-01 20:36:33
   from "module_file_tpl:CMSContentManager;admin_editcontent.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_681383fbe6adf3_55697130',
+  'unifunc' => 'content_6813bf318639f5_81114858',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,13 +20,13 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_681383fbe6adf3_55697130 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6813bf318639f5_81114858 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->smarty->ext->_tplFunction->registerTplFunctions($_smarty_tpl, array (
   'submit_buttons' => 
   array (
     'compiled_filepath' => 'C:\\xampp\\htdocs\\ProjektyPHP\\CMSmojszablon\\tmp\\templates_c\\CMSContentManager^28d3fefc35b1733c24f2fa8d1daa3c2deacb5954_1.module_file_tpl.CMSContentManager;admin_editcontent.tpl.php',
     'uid' => '28d3fefc35b1733c24f2fa8d1daa3c2deacb5954',
-    'call_name' => 'smarty_template_function_submit_buttons_1345997150681383fbe21e59_57115605',
+    'call_name' => 'smarty_template_function_submit_buttons_4696559986813bf31815ab9_91648335',
   ),
 ));
 if (!is_callable('smarty_function_admin_icon')) require_once 'C:\\xampp\\htdocs\\ProjektyPHP\\CMSmojszablon\\admin\\plugins\\function.admin_icon.php';
@@ -355,9 +355,9 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 <?php echo smarty_function_form_end(array(),$_smarty_tpl);?>
 
 </div><?php }
-/* smarty_template_function_submit_buttons_1345997150681383fbe21e59_57115605 */
-if (!function_exists('smarty_template_function_submit_buttons_1345997150681383fbe21e59_57115605')) {
-function smarty_template_function_submit_buttons_1345997150681383fbe21e59_57115605($_smarty_tpl,$params) {
+/* smarty_template_function_submit_buttons_4696559986813bf31815ab9_91648335 */
+if (!function_exists('smarty_template_function_submit_buttons_4696559986813bf31815ab9_91648335')) {
+function smarty_template_function_submit_buttons_4696559986813bf31815ab9_91648335($_smarty_tpl,$params) {
 foreach ($params as $key => $value) {
 $_smarty_tpl->tpl_vars[$key] = new Smarty_Variable($value, $_smarty_tpl->isRenderingCache);
 }?>
@@ -386,5 +386,5 @@ apply" value="<?php echo $_smarty_tpl->tpl_vars['mod']->value->Lang('apply');?>
 </p>
 <?php
 }}
-/*/ smarty_template_function_submit_buttons_1345997150681383fbe21e59_57115605 */
+/*/ smarty_template_function_submit_buttons_4696559986813bf31815ab9_91648335 */
 }

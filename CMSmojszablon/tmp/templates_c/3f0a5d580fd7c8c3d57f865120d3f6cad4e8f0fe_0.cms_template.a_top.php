@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.31, created on 2025-05-01 17:20:11
+/* Smarty version 3.1.31, created on 2025-05-01 20:35:39
   from "cms_template:a_top" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_6813912b759ea2_58268627',
+  'unifunc' => 'content_6813befb8b5b99_78137246',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '3f0a5d580fd7c8c3d57f865120d3f6cad4e8f0fe' => 
     array (
       0 => 'cms_template:a_top',
-      1 => '1746112792',
+      1 => '1746122130',
       2 => 'cms_template',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6813912b759ea2_58268627 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6813befb8b5b99_78137246 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_function_cms_get_language')) require_once 'C:\\xampp\\htdocs\\ProjektyPHP\\CMSmojszablon\\lib\\plugins\\function.cms_get_language.php';
 if (!is_callable('smarty_function_root_url')) require_once 'C:\\xampp\\htdocs\\ProjektyPHP\\CMSmojszablon\\lib\\plugins\\function.root_url.php';
 echo CMS_Content_Block::smarty_fetch_pagedata(array(),$_smarty_tpl);?>
@@ -34,7 +34,7 @@ echo CMS_Content_Block::smarty_fetch_pagedata(array(),$_smarty_tpl);?>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Clean Blog - Start Bootstrap Theme</title>
+        <title>My Blog</title>
         <link rel="icon" type="image/x-icon" href="<?php echo smarty_function_root_url(array(),$_smarty_tpl);?>
 /template/assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->

@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.31, created on 2025-05-01 16:23:09
+/* Smarty version 3.1.31, created on 2025-05-01 20:37:37
   from "module_file_tpl:DesignManager;admin_defaultadmin_tpltype_tooltip.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_681383cd77c281_79747544',
+  'unifunc' => 'content_6813bf71d5d899_76627331',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_681383cd77c281_79747544 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6813bf71d5d899_76627331 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_modifier_summarize')) require_once 'C:\\xampp\\htdocs\\ProjektyPHP\\CMSmojszablon\\lib\\plugins\\modifier.summarize.php';
 $_smarty_tpl->_assignInScope('tpltype', $_smarty_tpl->tpl_vars['list_all_types']->value[$_smarty_tpl->tpl_vars['type_id']->value]);
 ?><strong><?php echo $_smarty_tpl->tpl_vars['mod']->value->Lang('prompt_id');?>

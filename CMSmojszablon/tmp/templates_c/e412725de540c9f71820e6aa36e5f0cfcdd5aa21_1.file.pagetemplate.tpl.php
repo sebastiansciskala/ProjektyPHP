@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.31, created on 2025-05-01 16:23:56
+/* Smarty version 3.1.31, created on 2025-05-01 20:36:33
   from "C:\xampp\htdocs\ProjektyPHP\CMSmojszablon\admin\themes\OneEleven\templates\pagetemplate.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_681383fc006659_54254830',
+  'unifunc' => 'content_6813bf319270b0_34555036',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -48,7 +48,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_681383fc006659_54254830 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6813bf319270b0_34555036 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_modifier_truncate')) require_once 'C:\\xampp\\htdocs\\ProjektyPHP\\CMSmojszablon\\lib\\smarty\\plugins\\modifier.truncate.php';
 if (!is_callable('smarty_function_sitename')) require_once 'C:\\xampp\\htdocs\\ProjektyPHP\\CMSmojszablon\\lib\\plugins\\function.sitename.php';
 if (!is_callable('smarty_function_cms_jquery')) require_once 'C:\\xampp\\htdocs\\ProjektyPHP\\CMSmojszablon\\lib\\plugins\\function.cms_jquery.php';
@@ -153,7 +153,7 @@ echo smarty_function_sitename(array(),$_smarty_tpl);?>
 					</div>
 					<!-- bookmarks -->
 					<?php
-$_smarty_tpl->_subTemplateRender('file:shortcuts.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false, '831f48e26862cd21fa0a0c5f2a393741822aed48', 'content_681383fbeffe66_97689865');
+$_smarty_tpl->_subTemplateRender('file:shortcuts.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false, '831f48e26862cd21fa0a0c5f2a393741822aed48', 'content_6813bf318d4632_99705118');
 ?>
 
 				</div>
@@ -174,7 +174,7 @@ $_smarty_tpl->_subTemplateRender('file:shortcuts.tpl', $_smarty_tpl->cache_id, $
 /<?php echo lang('close');?>
 </span>
  			            <?php
-$_smarty_tpl->_subTemplateRender('file:navigation.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('nav'=>$_smarty_tpl->tpl_vars['theme']->value->get_navigation_tree()), 0, false, 'ed0c6b7bcc9babf326a3432736393bcb89a90626', 'content_681383fbf1b7a6_83167030');
+$_smarty_tpl->_subTemplateRender('file:navigation.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array('nav'=>$_smarty_tpl->tpl_vars['theme']->value->get_navigation_tree()), 0, false, 'ed0c6b7bcc9babf326a3432736393bcb89a90626', 'content_6813bf318f62f4_89398364');
 ?>
 
 				    </aside>
@@ -183,7 +183,7 @@ $_smarty_tpl->_subTemplateRender('file:navigation.tpl', $_smarty_tpl->cache_id, 
 				<!-- start main -->
 				<div id="oe_mainarea" class="cf">
 					<?php
-$_smarty_tpl->_subTemplateRender('file:messages.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false, '7efe648bb31099d0ad3c68295d6859640ebb88be', 'content_681383fbf31ce0_89777982');
+$_smarty_tpl->_subTemplateRender('file:messages.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false, '7efe648bb31099d0ad3c68295d6859640ebb88be', 'content_6813bf3190e707_74123893');
 ?>
 <article role="main" class="content-inner"><header class="pageheader<?php if (isset($_smarty_tpl->tpl_vars['is_ie']->value)) {?> drop-hidden<?php }?> cf"><?php if (isset($_smarty_tpl->tpl_vars['module_icon_url']->value) || isset($_smarty_tpl->tpl_vars['pagetitle']->value)) {?><h1><?php if (isset($_smarty_tpl->tpl_vars['module_icon_url']->value)) {?><img src="<?php echo $_smarty_tpl->tpl_vars['module_icon_url']->value;?>
 " alt="<?php echo (($tmp = @$_smarty_tpl->tpl_vars['module_name']->value)===null||$tmp==='' ? '' : $tmp);?>
@@ -204,7 +204,7 @@ if (isset($_smarty_tpl->tpl_vars['module_help_url']->value)) {?> <span class="he
 			<!-- end content //-->
 			<!-- start footer -->
 			<?php
-$_smarty_tpl->_subTemplateRender('file:footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false, 'fca094bc77034444e43a12c79d529863982b25f3', 'content_681383fbf3a922_00736309');
+$_smarty_tpl->_subTemplateRender('file:footer.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false, 'fca094bc77034444e43a12c79d529863982b25f3', 'content_6813bf319175f4_79641890');
 ?>
 
 			<!-- end footer //-->
@@ -216,7 +216,7 @@ $_smarty_tpl->_subTemplateRender('file:footer.tpl', $_smarty_tpl->cache_id, $_sm
 </html>
 <?php }
 /* Start inline template "C:\xampp\htdocs\ProjektyPHP\CMSmojszablon\admin\themes\OneEleven\templates\pagetemplate.tpl" =============================*/
-function content_681383fbeffe66_97689865 ($_smarty_tpl) {
+function content_6813bf318d4632_99705118 ($_smarty_tpl) {
 ?>
 <div class="shortcuts"><ul class="cf"><li class="help"><?php if (isset($_smarty_tpl->tpl_vars['module_help_url']->value)) {?><a href="<?php echo $_smarty_tpl->tpl_vars['module_help_url']->value;?>
 " title="<?php echo lang('module_help');?>
@@ -294,7 +294,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 }
 /* End inline template "C:\xampp\htdocs\ProjektyPHP\CMSmojszablon\admin\themes\OneEleven\templates\pagetemplate.tpl" =============================*/
 /* Start inline template "C:\xampp\htdocs\ProjektyPHP\CMSmojszablon\admin\themes\OneEleven\templates\pagetemplate.tpl" =============================*/
-function content_681383fbf1b7a6_83167030 ($_smarty_tpl) {
+function content_6813bf318f62f4_89398364 ($_smarty_tpl) {
 if (!isset($_smarty_tpl->tpl_vars['depth']->value)) {
 $_smarty_tpl->_assignInScope('depth', '0');
 }
@@ -331,7 +331,7 @@ if ($_smarty_tpl->tpl_vars['depth']->value == '0') {?></ul></nav><?php }
 }
 /* End inline template "C:\xampp\htdocs\ProjektyPHP\CMSmojszablon\admin\themes\OneEleven\templates\pagetemplate.tpl" =============================*/
 /* Start inline template "C:\xampp\htdocs\ProjektyPHP\CMSmojszablon\admin\themes\OneEleven\templates\pagetemplate.tpl" =============================*/
-function content_681383fbf31ce0_89777982 ($_smarty_tpl) {
+function content_6813bf3190e707_74123893 ($_smarty_tpl) {
 if (isset($_smarty_tpl->tpl_vars['errors']->value) && $_smarty_tpl->tpl_vars['errors']->value[0] != '') {?><aside class="message pageerrorcontainer" role="alert"><?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['errors']->value, 'error');
 if ($_from !== null) {
@@ -357,7 +357,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);
 }
 /* End inline template "C:\xampp\htdocs\ProjektyPHP\CMSmojszablon\admin\themes\OneEleven\templates\pagetemplate.tpl" =============================*/
 /* Start inline template "C:\xampp\htdocs\ProjektyPHP\CMSmojszablon\admin\themes\OneEleven\templates\pagetemplate.tpl" =============================*/
-function content_681383fbf3a922_00736309 ($_smarty_tpl) {
+function content_6813bf319175f4_79641890 ($_smarty_tpl) {
 ?>
 <footer id="oe_footer" class="cf"><div class="footer-left"><small class="copyright">Copyright &copy; <a rel="external" href="http://www.cmsmadesimple.org">CMS Made Simple&trade; <?php echo smarty_function_cms_version(array(),$_smarty_tpl);?>
  &ldquo;<?php echo smarty_function_cms_versionname(array(),$_smarty_tpl);?>

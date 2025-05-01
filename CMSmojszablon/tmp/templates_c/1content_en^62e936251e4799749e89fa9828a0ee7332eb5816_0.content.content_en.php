@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.31, created on 2025-05-01 17:41:55
+/* Smarty version 3.1.31, created on 2025-05-01 20:35:39
   from "content:content_en" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_681396434db421_79692298',
+  'unifunc' => 'content_6813befb900b40_88779656',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_681396434db421_79692298 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6813befb900b40_88779656 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <section class="text-center my-5">
 <div class="container px-4 px-lg-5">

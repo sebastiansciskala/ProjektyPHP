@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.31, created on 2025-05-01 16:22:18
+/* Smarty version 3.1.31, created on 2025-05-01 21:16:31
   from "C:\xampp\htdocs\ProjektyPHP\CMSmojszablon\admin\themes\OneEleven\templates\topcontent.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_6813839a01b684_89736422',
+  'unifunc' => 'content_6813c88fd37892_82779517',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6813839a01b684_89736422 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6813c88fd37892_82779517 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div id="topcontent_wrap"><?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['nodes']->value, 'node', false, NULL, 'box', array (

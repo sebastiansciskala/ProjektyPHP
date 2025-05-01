@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.31, created on 2025-05-01 16:23:55
+/* Smarty version 3.1.31, created on 2025-05-01 21:22:41
   from "module_file_tpl:MicroTiny;tinymce_config.js" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_681383fbec8a87_46625544',
+  'unifunc' => 'content_6813ca01107589_27649177',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_681383fbec8a87_46625544 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6813ca01107589_27649177 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_function_root_url')) require_once 'C:\\xampp\\htdocs\\ProjektyPHP\\CMSmojszablon\\lib\\plugins\\function.root_url.php';
 if (!is_callable('smarty_function_cms_stylesheet')) require_once 'C:\\xampp\\htdocs\\ProjektyPHP\\CMSmojszablon\\lib\\plugins\\function.cms_stylesheet.php';
 ?>

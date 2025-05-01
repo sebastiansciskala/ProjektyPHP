@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.31, created on 2025-05-01 17:12:07
+/* Smarty version 3.1.31, created on 2025-05-01 20:35:39
   from "cms_template:a_bottom" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_68138f47929299_07176280',
+  'unifunc' => 'content_6813befb90a2f7_87640979',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_68138f47929299_07176280 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6813befb90a2f7_87640979 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_function_root_url')) require_once 'C:\\xampp\\htdocs\\ProjektyPHP\\CMSmojszablon\\lib\\plugins\\function.root_url.php';
 ?>
 <footer class="border-top">

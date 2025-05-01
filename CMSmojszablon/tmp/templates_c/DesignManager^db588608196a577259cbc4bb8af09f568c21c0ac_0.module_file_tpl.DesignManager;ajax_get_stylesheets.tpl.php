@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.31, created on 2025-05-01 16:23:09
+/* Smarty version 3.1.31, created on 2025-05-01 20:37:38
   from "module_file_tpl:DesignManager;ajax_get_stylesheets.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_681383cd9a9106_11505550',
+  'unifunc' => 'content_6813bf720ebbe9_28046998',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'module_file_tpl:DesignManager;admin_defaultadmin_csstooltip.tpl' => 1,
   ),
 ),false)) {
-function content_681383cd9a9106_11505550 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6813bf720ebbe9_28046998 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_cms_function_cms_action_url')) require_once 'C:\\xampp\\htdocs\\ProjektyPHP\\CMSmojszablon\\lib\\plugins\\function.cms_action_url.php';
 if (!is_callable('smarty_function_admin_icon')) require_once 'C:\\xampp\\htdocs\\ProjektyPHP\\CMSmojszablon\\admin\\plugins\\function.admin_icon.php';
 if (!is_callable('smarty_function_form_start')) require_once 'C:\\xampp\\htdocs\\ProjektyPHP\\CMSmojszablon\\lib\\plugins\\function.form_start.php';

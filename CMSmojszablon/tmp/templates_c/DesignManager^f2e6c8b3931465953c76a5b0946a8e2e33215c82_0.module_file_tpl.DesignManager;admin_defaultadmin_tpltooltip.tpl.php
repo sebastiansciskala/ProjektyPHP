@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.31, created on 2025-05-01 16:23:09
+/* Smarty version 3.1.31, created on 2025-05-01 20:37:37
   from "module_file_tpl:DesignManager;admin_defaultadmin_tpltooltip.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_681383cd768621_76132096',
+  'unifunc' => 'content_6813bf71d45ec7_21939041',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_681383cd768621_76132096 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6813bf71d45ec7_21939041 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_function_cms_admin_user')) require_once 'C:\\xampp\\htdocs\\ProjektyPHP\\CMSmojszablon\\admin\\plugins\\function.cms_admin_user.php';
 if (!is_callable('smarty_modifier_date_format')) require_once 'C:\\xampp\\htdocs\\ProjektyPHP\\CMSmojszablon\\lib\\smarty\\plugins\\modifier.date_format.php';
 if (!is_callable('smarty_modifier_relative_time')) require_once 'C:\\xampp\\htdocs\\ProjektyPHP\\CMSmojszablon\\lib\\plugins\\modifier.relative_time.php';

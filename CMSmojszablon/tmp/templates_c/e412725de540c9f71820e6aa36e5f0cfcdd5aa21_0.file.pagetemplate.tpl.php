@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.31, created on 2025-05-01 16:22:18
+/* Smarty version 3.1.31, created on 2025-05-01 20:33:18
   from "C:\xampp\htdocs\ProjektyPHP\CMSmojszablon\admin\themes\OneEleven\templates\pagetemplate.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.31',
-  'unifunc' => 'content_6813839a05b693_89430572',
+  'unifunc' => 'content_6813be6eb57d06_57417358',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -24,7 +24,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_6813839a05b693_89430572 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6813be6eb57d06_57417358 (Smarty_Internal_Template $_smarty_tpl) {
 if (!is_callable('smarty_modifier_truncate')) require_once 'C:\\xampp\\htdocs\\ProjektyPHP\\CMSmojszablon\\lib\\smarty\\plugins\\modifier.truncate.php';
 if (!is_callable('smarty_function_sitename')) require_once 'C:\\xampp\\htdocs\\ProjektyPHP\\CMSmojszablon\\lib\\plugins\\function.sitename.php';
 if (!is_callable('smarty_function_cms_jquery')) require_once 'C:\\xampp\\htdocs\\ProjektyPHP\\CMSmojszablon\\lib\\plugins\\function.cms_jquery.php';
